@@ -311,6 +311,75 @@
         padding: 20px;
       }
 
+      .logo-wall {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .logo-tile {
+        display: flex;
+        min-height: 96px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 18px;
+      }
+
+      .logo-tile img,
+      .client-logo img {
+        display: block;
+        max-width: 150px;
+        max-height: 42px;
+        filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.28));
+      }
+
+      .wordmark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        min-height: 36px;
+        color: var(--ink);
+        font-size: 1.05rem;
+        font-weight: 850;
+        letter-spacing: 0;
+      }
+
+      .wordmark.comcast {
+        color: #f7f2e8;
+      }
+
+      .wordmark.astrazeneca {
+        color: #ffd34d;
+      }
+
+      .wordmark.cognizant {
+        color: #8fb8ff;
+      }
+
+      .wordmark.citi {
+        color: #ff6f6f;
+      }
+
+      .wordmark.turnberry,
+      .wordmark.brixton,
+      .wordmark.sensegrid {
+        border-left: 3px solid var(--cyan);
+        justify-content: flex-start;
+        padding-left: 12px;
+      }
+
+      .client-logo {
+        display: flex;
+        min-height: 44px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+
       .client:last-child {
         border-right: 0;
       }
@@ -383,6 +452,65 @@
 
       .role h3 {
         margin-bottom: 4px;
+      }
+
+      .role-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 4px;
+      }
+
+      .role-heading h3 {
+        margin: 0;
+      }
+
+      .mini-logo {
+        display: inline-flex;
+        width: 118px;
+        min-height: 34px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.055);
+        padding: 8px 10px;
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
+      .mini-logo img {
+        max-width: 96px;
+        max-height: 24px;
+      }
+
+      .mini-logo.dual {
+        width: auto;
+        gap: 10px;
+      }
+
+      .inline-logo-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+
+      .inline-logo {
+        display: inline-flex;
+        min-height: 28px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 5px 9px;
+        color: var(--soft);
+        font-size: 0.72rem;
+        font-weight: 850;
       }
 
       .role ul {
@@ -472,6 +600,7 @@
         }
 
         .stats,
+        .logo-wall,
         .client-strip,
         .cards {
           grid-template-columns: repeat(2, 1fr);
@@ -504,6 +633,7 @@
         }
 
         .stats,
+        .logo-wall,
         .client-strip,
         .cards {
           grid-template-columns: 1fr;
@@ -599,11 +729,30 @@
               financial services, healthcare, media, telecom, semiconductor, and AI platform organizations.
             </p>
           </div>
+          <div class="logo-wall" aria-label="Consulting companies and employers">
+            <div class="logo-tile"><img src="https://cdn.simpleicons.org/infosys/ffffff" alt="Infosys logo" loading="lazy" /></div>
+            <div class="logo-tile"><img src="https://cdn.simpleicons.org/wipro/ffffff" alt="Wipro logo" loading="lazy" /></div>
+            <div class="logo-tile"><span class="wordmark cognizant" role="img" aria-label="Cognizant logo">cognizant</span></div>
+            <div class="logo-tile"><span class="wordmark turnberry" role="img" aria-label="Turnberry Solutions logo">Turnberry</span></div>
+            <div class="logo-tile"><img src="https://cdn.simpleicons.org/accenture/ffffff" alt="Accenture logo" loading="lazy" /></div>
+          </div>
           <div class="client-strip">
-            <div class="client"><strong>Comcast Business</strong><span>12 years of onsite technical leadership, platform architecture, SRE, modernization, and incident response.</span></div>
-            <div class="client"><strong>AstraZeneca</strong><span>Enterprise infrastructure and application operations across India and UK delivery contexts.</span></div>
-            <div class="client"><strong>Citibank</strong><span>Mission-critical banking web hosting and ITIL-aligned production operations.</span></div>
-            <div class="client"><strong>Hitachi Renesas</strong><span>Java web infrastructure administration for production and non-production systems.</span></div>
+            <div class="client">
+              <div class="client-logo"><span class="wordmark comcast" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span></div>
+              <span>12 years of onsite technical leadership, platform architecture, SRE, modernization, and incident response.</span>
+            </div>
+            <div class="client">
+              <div class="client-logo"><span class="wordmark astrazeneca" role="img" aria-label="AstraZeneca logo">AstraZeneca</span></div>
+              <span>Enterprise infrastructure and application operations across India and UK delivery contexts.</span>
+            </div>
+            <div class="client">
+              <div class="client-logo"><span class="wordmark citi" role="img" aria-label="Citi logo">citi</span></div>
+              <span>Mission-critical banking web hosting and ITIL-aligned production operations.</span>
+            </div>
+            <div class="client">
+              <div class="client-logo"><img src="https://cdn.simpleicons.org/hitachi/ffffff" alt="Hitachi logo" loading="lazy" /></div>
+              <span>Java web infrastructure administration for production and non-production systems.</span>
+            </div>
           </div>
         </div>
       </section>
@@ -728,7 +877,10 @@
             <article class="role">
               <div class="date">Feb 2026 - Present</div>
               <div>
-                <h3>Principal Solutions Architect, SenseGrid AI Systems</h3>
+                <div class="role-heading">
+                  <span class="mini-logo"><span class="wordmark sensegrid" role="img" aria-label="SenseGrid AI Systems logo">SenseGrid</span></span>
+                  <h3>Principal Solutions Architect</h3>
+                </div>
                 <p>Kochi, India | Production-grade AI platform company</p>
                 <ul>
                   <li>Own end-to-end architecture for enterprise AI platform services, infrastructure, security, CI/CD, observability, and inference environments.</li>
@@ -739,8 +891,15 @@
             <article class="role">
               <div class="date">Jul 2024 - Jun 2026</div>
               <div>
-                <h3>Platform Architecture & Agentic AI Implementation Lead, The Brixton Group</h3>
-                <p>Client: Comcast Business | Mount Laurel, New Jersey</p>
+                <div class="role-heading">
+                  <span class="mini-logo"><span class="wordmark brixton" role="img" aria-label="The Brixton Group logo">Brixton</span></span>
+                  <h3>Platform Architecture & Agentic AI Implementation Lead</h3>
+                </div>
+                <p class="inline-logo-row">
+                  <span>Client:</span>
+                  <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
+                  <span>Mount Laurel, New Jersey</span>
+                </p>
                 <ul>
                   <li>Established enterprise platform practice, reference architecture, service standards, IaC standards, and governance model.</li>
                   <li>Built policy-controlled execution frameworks, RAG infrastructure, and hybrid edge platforms for privacy, latency, and cost needs.</li>
@@ -750,8 +909,15 @@
             <article class="role">
               <div class="date">Apr 2023 - Jul 2024</div>
               <div>
-                <h3>Enterprise SRE / Platform Architect, Turnberry Solutions</h3>
-                <p>Client: Comcast Business | Mount Laurel, New Jersey</p>
+                <div class="role-heading">
+                  <span class="mini-logo"><span class="wordmark turnberry" role="img" aria-label="Turnberry Solutions logo">Turnberry</span></span>
+                  <h3>Enterprise SRE / Platform Architect</h3>
+                </div>
+                <p class="inline-logo-row">
+                  <span>Client:</span>
+                  <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
+                  <span>Mount Laurel, New Jersey</span>
+                </p>
                 <ul>
                   <li>Led observability architecture across AWS, Azure, and on-prem environments for mission-critical platforms.</li>
                   <li>Advanced automation, DevSecOps, patching, compliance validation, disaster recovery, and chaos engineering programs.</li>
@@ -761,8 +927,15 @@
             <article class="role">
               <div class="date">Dec 2010 - Apr 2023</div>
               <div>
-                <h3>Lead Site Reliability Engineer / Infrastructure Architect, Cognizant</h3>
-                <p>Clients: Comcast Business, AstraZeneca</p>
+                <div class="role-heading">
+                  <span class="mini-logo"><span class="wordmark cognizant" role="img" aria-label="Cognizant logo">cognizant</span></span>
+                  <h3>Lead Site Reliability Engineer / Infrastructure Architect</h3>
+                </div>
+                <p class="inline-logo-row">
+                  <span>Clients:</span>
+                  <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
+                  <span class="inline-logo" role="img" aria-label="AstraZeneca logo">AstraZeneca</span>
+                </p>
                 <ul>
                   <li>Served as onsite client-facing technical lead and architect for Comcast Business for nearly a decade.</li>
                   <li>Led migration, CI/CD, IaC, observability, DR, incident response, and global delivery teams of 5-60 engineers.</li>
@@ -772,8 +945,17 @@
             <article class="role">
               <div class="date">2006 - 2010</div>
               <div>
-                <h3>Infrastructure and Application Operations, Wipro & Infosys</h3>
-                <p>Clients included global financial services and Hitachi Renesas Technology Americas.</p>
+                <div class="role-heading">
+                  <span class="mini-logo dual">
+                    <img src="https://cdn.simpleicons.org/wipro/ffffff" alt="Wipro logo" loading="lazy" />
+                    <img src="https://cdn.simpleicons.org/infosys/ffffff" alt="Infosys logo" loading="lazy" />
+                  </span>
+                  <h3>Infrastructure and Application Operations</h3>
+                </div>
+                <p class="inline-logo-row">
+                  <span>Clients included global financial services and</span>
+                  <span class="inline-logo" role="img" aria-label="Hitachi logo">HITACHI</span>
+                </p>
                 <ul>
                   <li>Operated enterprise web hosting and Java application infrastructure for business-critical production systems.</li>
                 </ul>
