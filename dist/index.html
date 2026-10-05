@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vipin Alakkadan | Solutions Architect</title>
+    <meta
+      name="description"
+      content="Vipin Alakkadan is a Solutions Architect for cloud, Gen AI, application modernization, platform engineering, SRE, and enterprise infrastructure transformation."
+    />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23091420'/%3E%3Cpath d='M15 43 28 13h8l13 30h-8l-3-7H26l-3 7h-8Zm14-14h6l-3-8-3 8Z' fill='%23f7f2e8'/%3E%3Cpath d='M18 50h28' stroke='%2300c2a8' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #f7f2e8;
+        --muted: #a9b7c6;
+        --soft: #d9e3ea;
+        --bg: #07111e;
+        --panel: rgba(14, 29, 47, 0.78);
+        --line: rgba(217, 227, 234, 0.16);
+        --cyan: #00c2a8;
+        --amber: #f2b84b;
+        --rose: #e86464;
+        --blue: #72a7ff;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 18% 0%, rgba(0, 194, 168, 0.18), transparent 28rem),
+          radial-gradient(circle at 86% 7%, rgba(242, 184, 75, 0.13), transparent 24rem),
+          linear-gradient(135deg, #07111e 0%, #0c1826 48%, #111a21 100%);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 17, 30, 0.84);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav-inner {
+        display: flex;
+        min-height: 68px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 750;
+      }
+
+      .mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        place-items: center;
+        border: 1px solid rgba(0, 194, 168, 0.45);
+        border-radius: 8px;
+        background: rgba(0, 194, 168, 0.08);
+        color: var(--cyan);
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .links a:hover,
+      .contact-link:hover {
+        color: var(--ink);
+      }
+
+      .contact-link {
+        border: 1px solid rgba(247, 242, 232, 0.28);
+        border-radius: 8px;
+        padding: 10px 14px;
+        color: var(--soft);
+      }
+
+      .hero {
+        position: relative;
+        padding: 76px 0 42px;
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+        gap: 42px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--cyan);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 860px;
+        margin-bottom: 22px;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 760px;
+        color: var(--soft);
+        font-size: clamp(1.08rem, 2vw, 1.28rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 30px 0 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        padding: 0 18px;
+        font-weight: 750;
+      }
+
+      .primary {
+        background: var(--cyan);
+        color: #04120f;
+      }
+
+      .secondary {
+        border: 1px solid rgba(247, 242, 232, 0.26);
+        color: var(--ink);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.045);
+        padding: 16px;
+      }
+
+      .stat strong {
+        display: block;
+        color: var(--ink);
+        font-size: 1.55rem;
+        line-height: 1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .signal-board {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+          rgba(10, 24, 39, 0.9);
+        box-shadow: var(--shadow);
+        padding: 22px;
+      }
+
+      .board-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+      }
+
+      .board-top span {
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .availability {
+        border: 1px solid rgba(0, 194, 168, 0.34);
+        border-radius: 999px;
+        padding: 7px 10px;
+        color: var(--cyan);
+        font-size: 0.78rem;
+        font-weight: 750;
+      }
+
+      .architecture-map {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        margin: 22px 0;
+      }
+
+      .node {
+        min-height: 74px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px;
+        color: var(--soft);
+        font-size: 0.78rem;
+      }
+
+      .node.wide {
+        grid-column: span 3;
+      }
+
+      .node.tall {
+        grid-column: span 2;
+        min-height: 122px;
+      }
+
+      .node.accent {
+        border-color: rgba(0, 194, 168, 0.46);
+        background: rgba(0, 194, 168, 0.1);
+      }
+
+      .board-note {
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.6fr) minmax(280px, 0.4fr);
+        gap: 26px;
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .section-head p {
+        color: var(--muted);
+        font-size: 1.02rem;
+      }
+
+      .client-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .client {
+        min-height: 124px;
+        border-right: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 20px;
+      }
+
+      .client:last-child {
+        border-right: 0;
+      }
+
+      .client strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.15rem;
+      }
+
+      .client span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        padding: 22px;
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+      }
+
+      .card p,
+      .role p,
+      .role li {
+        color: var(--muted);
+      }
+
+      .tag {
+        display: inline-flex;
+        margin-bottom: 16px;
+        border-radius: 999px;
+        background: rgba(114, 167, 255, 0.13);
+        padding: 6px 10px;
+        color: #a8c6ff;
+        font-size: 0.78rem;
+        font-weight: 750;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 14px;
+      }
+
+      .role {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.035);
+        padding: 22px;
+      }
+
+      .date {
+        color: var(--amber);
+        font-weight: 800;
+      }
+
+      .role h3 {
+        margin-bottom: 4px;
+      }
+
+      .role ul {
+        margin: 14px 0 0;
+        padding-left: 20px;
+      }
+
+      .skill-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-cloud span {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.045);
+        padding: 9px 12px;
+        color: var(--soft);
+        font-size: 0.9rem;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .feature {
+        border: 1px solid rgba(0, 194, 168, 0.28);
+        border-radius: 8px;
+        background: rgba(0, 194, 168, 0.08);
+        padding: 28px;
+      }
+
+      .feature strong {
+        color: var(--cyan);
+      }
+
+      .contact {
+        border-top: 1px solid var(--line);
+        padding: 48px 0 56px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: end;
+      }
+
+      .contact h2 {
+        margin-bottom: 12px;
+      }
+
+      .contact p {
+        max-width: 720px;
+        color: var(--muted);
+      }
+
+      .contact-methods {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 22px 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 900px) {
+        .links {
+          display: none;
+        }
+
+        .hero-grid,
+        .section-head,
+        .split,
+        .contact-grid,
+        .role {
+          grid-template-columns: 1fr;
+        }
+
+        .stats,
+        .client-strip,
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .client:nth-child(2) {
+          border-right: 0;
+        }
+
+        .client:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        .contact-methods {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .shell {
+          width: min(100% - 22px, 1180px);
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        .stats,
+        .client-strip,
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .client,
+        .client:nth-child(2) {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .client:last-child {
+          border-bottom: 0;
+        }
+
+        .architecture-map {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .node,
+        .node.wide,
+        .node.tall {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="shell nav-inner">
+        <a class="brand" href="#top" aria-label="Vipin Alakkadan home">
+          <span class="mark">VA</span>
+          <span>Vipin Alakkadan</span>
+        </a>
+        <div class="links" aria-label="Primary navigation">
+          <a href="#clients">Clients</a>
+          <a href="#work">Work</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#contact" class="contact-link">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="top">
+      <header class="hero">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">Solutions Architect | Cloud, Gen AI, Application & Infrastructure</p>
+            <h1>Architecture leadership for complex enterprise platforms.</h1>
+            <p class="lead">
+              I help organizations modernize applications, build secure cloud and AI platforms, improve reliability,
+              and turn high-stakes transformation programs into deployable architecture.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="mailto:vipinalakkadan@gmail.com">Start a consulting conversation</a>
+              <a class="button secondary" href="https://www.linkedin.com/in/vipin-alakkadan">LinkedIn profile</a>
+            </div>
+            <div class="stats" aria-label="Professional highlights">
+              <div class="stat"><strong>20+</strong><span>years in enterprise technology</span></div>
+              <div class="stat"><strong>12</strong><span>years onsite with Comcast Business</span></div>
+              <div class="stat"><strong>60</strong><span>engineers led across global teams</span></div>
+              <div class="stat"><strong>4,000</strong><span>VM migration and modernization portfolio</span></div>
+            </div>
+          </div>
+          <aside class="signal-board" aria-label="Architecture focus map">
+            <div class="board-top">
+              <strong>Current Focus</strong>
+              <span class="availability">Open to consulting</span>
+            </div>
+            <div class="architecture-map" aria-hidden="true">
+              <div class="node wide accent">AI Gateway<br />LLM routing, policy, telemetry</div>
+              <div class="node wide">Cloud landing zones<br />AWS, Azure, GCP</div>
+              <div class="node tall">Kubernetes platforms<br />EKS, GKE, AKS, K3s</div>
+              <div class="node tall accent">Reliability engineering<br />SLOs, DR, incident command</div>
+              <div class="node tall">DevSecOps<br />GitOps, IaC, security scanning</div>
+              <div class="node wide">Application modernization<br />microservices, APIs, events</div>
+              <div class="node wide">Governance<br />ISO 42001, NIST AI RMF, SOC 2</div>
+            </div>
+            <p class="board-note">
+              Based in Kochi, India, with deep onsite client-facing experience in New Jersey across architecture,
+              engineering, infrastructure, operations, security, product, and leadership teams.
+            </p>
+          </aside>
+        </div>
+      </header>
+
+      <section id="clients">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Trusted in demanding enterprise environments.</h2>
+            <p>
+              Experience spans consulting firms, global delivery teams, and client-facing architecture programs for
+              financial services, healthcare, media, telecom, semiconductor, and AI platform organizations.
+            </p>
+          </div>
+          <div class="client-strip">
+            <div class="client"><strong>Comcast Business</strong><span>12 years of onsite technical leadership, platform architecture, SRE, modernization, and incident response.</span></div>
+            <div class="client"><strong>AstraZeneca</strong><span>Enterprise infrastructure and application operations across India and UK delivery contexts.</span></div>
+            <div class="client"><strong>Citibank</strong><span>Mission-critical banking web hosting and ITIL-aligned production operations.</span></div>
+            <div class="client"><strong>Hitachi Renesas</strong><span>Java web infrastructure administration for production and non-production systems.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Representative work and outcomes.</h2>
+            <p>
+              Practical architecture work across discovery, design, implementation, reliability, governance, and
+              production operations.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <span class="tag">AI Platform Architecture</span>
+              <h3>Production-grade enterprise AI platform</h3>
+              <p>
+                Designed microservices, Kubernetes deployment models, AI gateway architecture, self-hosted GPU
+                inference, MCP service interfaces, LLM observability, evaluation pipelines, and policy-as-code controls.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Cloud Modernization</span>
+              <h3>Large-scale application and infrastructure transformation</h3>
+              <p>
+                Led modernization planning and delivery for approximately 4,000 virtual machines and 70+ enterprise
+                applications, including dependency mapping, sequencing, validation, cutover, and operational transition.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Reliability & SRE</span>
+              <h3>High-availability platforms and faster recovery</h3>
+              <p>
+                Built observability, self-healing automation, DR programs, chaos engineering practices, and incident
+                response patterns that reduced MTTR by up to 60% and supported five-nines availability goals.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">DevSecOps</span>
+              <h3>Repeatable delivery with governance built in</h3>
+              <p>
+                Established IaC frameworks, GitOps workflows, blue-green and canary deployments, policy gates, security
+                scanning, compliance checks, and zero-downtime release practices.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Hybrid Cloud</span>
+              <h3>AWS, Azure, GCP, and on-premises architecture</h3>
+              <p>
+                Designed secure network connectivity, workload placement, Kubernetes platforms, storage and data
+                services, high availability, capacity planning, cost optimization, and multi-cloud resilience.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Architecture Leadership</span>
+              <h3>Client-facing technical decision leadership</h3>
+              <p>
+                Ran architecture workshops, discovery, design reviews, production readiness reviews, executive
+                communication, incident command, vendor coordination, and cross-functional delivery.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell split">
+          <div class="feature">
+            <p class="eyebrow">Consulting Offer</p>
+            <h2>For teams that need architecture to survive contact with production.</h2>
+            <p>
+              I work best where business urgency, legacy complexity, cloud scale, AI adoption, security expectations,
+              and reliability targets all meet at once.
+            </p>
+            <p><strong>Typical engagements:</strong> cloud migration strategy, AI platform design, Kubernetes platform reviews, SRE maturity, application modernization roadmaps, architecture governance, and transformation delivery leadership.</p>
+          </div>
+          <div class="cards">
+            <article class="card"><h3>Assess</h3><p>Map current-state architecture, dependencies, risks, operating model gaps, and modernization constraints.</p></article>
+            <article class="card"><h3>Architect</h3><p>Produce practical blueprints, service boundaries, platform patterns, landing zones, and migration plans.</p></article>
+            <article class="card"><h3>Deliver</h3><p>Lead execution across engineering, infrastructure, security, product, operations, and executive stakeholders.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="expertise">
+        <div class="shell">
+          <div class="section-head">
+            <h2>Technical depth across modern enterprise platforms.</h2>
+            <p>
+              Hands-on architecture across cloud, infrastructure, AI workloads, delivery pipelines, observability,
+              identity, security, and data platforms.
+            </p>
+          </div>
+          <div class="skill-cloud" aria-label="Skills">
+            <span>AWS EKS, ECS, EC2, VPC, IAM, RDS, S3</span>
+            <span>Azure AKS, Container Apps, Front Door, Key Vault</span>
+            <span>GCP GKE, Compute Engine, Cloud SQL, Cloud Build</span>
+            <span>Kubernetes, Docker, Helm, Cloud Foundry</span>
+            <span>Terraform, CloudFormation, Ansible, Packer</span>
+            <span>Jenkins, GitHub Actions, GitOps, IBM Udeploy</span>
+            <span>Prometheus, Grafana, OpenTelemetry, Loki, Tempo</span>
+            <span>Splunk, ELK, AppDynamics, VictoriaMetrics</span>
+            <span>vLLM, SGLang, LiteLLM, Langfuse, pgvector</span>
+            <span>OPA, Vault, RBAC, OAuth2, OIDC, SAML</span>
+            <span>SOC 2, ISO 27001, ISO 42001, NIST AI RMF</span>
+            <span>Python, Java, Bash, PowerShell, SQL, TypeScript</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="shell">
+          <div class="section-head">
+            <h2>Career timeline.</h2>
+            <p>
+              A progression from production infrastructure operations into enterprise architecture, platform
+              engineering, SRE leadership, and AI platform design.
+            </p>
+          </div>
+          <div class="timeline">
+            <article class="role">
+              <div class="date">Feb 2026 - Present</div>
+              <div>
+                <h3>Principal Solutions Architect, SenseGrid AI Systems</h3>
+                <p>Kochi, India | Production-grade AI platform company</p>
+                <ul>
+                  <li>Own end-to-end architecture for enterprise AI platform services, infrastructure, security, CI/CD, observability, and inference environments.</li>
+                  <li>Designed AI gateway, model-serving architecture, MCP interfaces, LLM telemetry, governance controls, and evaluation pipelines.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="role">
+              <div class="date">Jul 2024 - Jun 2026</div>
+              <div>
+                <h3>Platform Architecture & Agentic AI Implementation Lead, The Brixton Group</h3>
+                <p>Client: Comcast Business | Mount Laurel, New Jersey</p>
+                <ul>
+                  <li>Established enterprise platform practice, reference architecture, service standards, IaC standards, and governance model.</li>
+                  <li>Built policy-controlled execution frameworks, RAG infrastructure, and hybrid edge platforms for privacy, latency, and cost needs.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="role">
+              <div class="date">Apr 2023 - Jul 2024</div>
+              <div>
+                <h3>Enterprise SRE / Platform Architect, Turnberry Solutions</h3>
+                <p>Client: Comcast Business | Mount Laurel, New Jersey</p>
+                <ul>
+                  <li>Led observability architecture across AWS, Azure, and on-prem environments for mission-critical platforms.</li>
+                  <li>Advanced automation, DevSecOps, patching, compliance validation, disaster recovery, and chaos engineering programs.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="role">
+              <div class="date">Dec 2010 - Apr 2023</div>
+              <div>
+                <h3>Lead Site Reliability Engineer / Infrastructure Architect, Cognizant</h3>
+                <p>Clients: Comcast Business, AstraZeneca</p>
+                <ul>
+                  <li>Served as onsite client-facing technical lead and architect for Comcast Business for nearly a decade.</li>
+                  <li>Led migration, CI/CD, IaC, observability, DR, incident response, and global delivery teams of 5-60 engineers.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="role">
+              <div class="date">2006 - 2010</div>
+              <div>
+                <h3>Infrastructure and Application Operations, Wipro & Infosys</h3>
+                <p>Clients included global financial services and Hitachi Renesas Technology Americas.</p>
+                <ul>
+                  <li>Operated enterprise web hosting and Java application infrastructure for business-critical production systems.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="shell contact-grid">
+          <div>
+            <p class="eyebrow">Let’s Work Together</p>
+            <h2>Available for freelance consulting and architecture leadership.</h2>
+            <p>
+              Bring me in for strategy, architecture reviews, modernization planning, AI platform design, reliability
+              improvement, or hands-on leadership through complex engineering delivery.
+            </p>
+          </div>
+          <div class="contact-methods">
+            <a class="button primary" href="mailto:vipinalakkadan@gmail.com">vipinalakkadan@gmail.com</a>
+            <a class="button secondary" href="tel:+918075190434">+91 80751 90434</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="shell">Vipin Alakkadan · Kochi, Kerala, India · Cloud, Gen AI, application, and infrastructure architecture</div>
+    </footer>
+  </body>
+</html>
