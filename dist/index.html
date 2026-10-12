@@ -373,11 +373,127 @@
         padding-left: 12px;
       }
 
+      .brand-logo {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        color: #fff7e8;
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .brand-logo.comcast-logo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        font-size: 1.08rem;
+      }
+
+      .brand-logo.comcast-logo::before {
+        content: "";
+        width: 104px;
+        height: 12px;
+        border-radius: 999px 999px 0 0;
+        background: linear-gradient(90deg, #f04b38 0 17%, #ff9d28 17% 34%, #ffd647 34% 51%, #54b948 51% 68%, #1d9bd7 68% 84%, #7654a3 84% 100%);
+        clip-path: ellipse(50% 90% at 50% 100%);
+      }
+
+      .brand-logo.comcast-logo small {
+        color: rgba(255, 247, 232, 0.74);
+        font-size: 0.66rem;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .brand-logo.astrazeneca-logo {
+        color: #ffe45c;
+        font-size: 1.26rem;
+        font-style: italic;
+      }
+
+      .brand-logo.astrazeneca-logo::before,
+      .brand-logo.astrazeneca-logo::after {
+        content: "";
+        position: absolute;
+        border: 2px solid #ffe45c;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        transform: rotate(-21deg);
+      }
+
+      .brand-logo.astrazeneca-logo::before {
+        width: 136px;
+        height: 42px;
+        opacity: 0.95;
+      }
+
+      .brand-logo.astrazeneca-logo::after {
+        width: 92px;
+        height: 26px;
+        opacity: 0.55;
+      }
+
+      .brand-logo.citi-logo {
+        color: #ffffff;
+        font-size: 2.05rem;
+        font-weight: 900;
+        text-transform: lowercase;
+      }
+
+      .brand-logo.citi-logo::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 16px;
+        width: 58px;
+        height: 30px;
+        border-top: 6px solid #e5312a;
+        border-radius: 80px 80px 0 0;
+      }
+
+      .brand-logo.svg-logo {
+        min-width: 170px;
+        min-height: 58px;
+      }
+
+      .brand-logo.svg-logo::before,
+      .brand-logo.svg-logo::after {
+        display: none;
+      }
+
+      .brand-logo.svg-logo svg {
+        display: block;
+        width: min(190px, 100%);
+        height: auto;
+      }
+
       .client-logo {
         display: flex;
         min-height: 44px;
         align-items: center;
         margin-bottom: 14px;
+      }
+
+      .client-logo.logo-panel {
+        width: min(100%, 230px);
+        min-height: 76px;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(244, 240, 230, 0.28);
+        background: #ffffff;
+        padding: 12px 16px;
+      }
+
+      .client-logo.logo-panel img {
+        width: 100%;
+        max-width: 198px;
+        max-height: 62px;
+        object-fit: contain;
       }
 
       .client:last-child {
@@ -659,6 +775,627 @@
           grid-column: span 1;
         }
       }
+
+      /* Editorial studio redesign inspired by the supplied reference. */
+      :root {
+        color-scheme: light;
+        --ink: #11100c;
+        --muted: #5f5b52;
+        --soft: #2b2a25;
+        --bg: #f4f0e6;
+        --panel: #fffaf0;
+        --line: rgba(17, 16, 12, 0.18);
+        --cyan: #0d6bff;
+        --amber: #ff6a2a;
+        --rose: #d93a2f;
+        --blue: #0d6bff;
+        --acid: #c8ff3d;
+        --shadow: 0 22px 0 rgba(17, 16, 12, 0.95);
+      }
+
+      body {
+        background:
+          linear-gradient(rgba(17, 16, 12, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(17, 16, 12, 0.045) 1px, transparent 1px),
+          radial-gradient(circle at 78% 11%, rgba(200, 255, 61, 0.55), transparent 18rem),
+          radial-gradient(circle at 12% 18%, rgba(13, 107, 255, 0.2), transparent 26rem),
+          var(--bg);
+        background-size: 32px 32px, 32px 32px, auto, auto, auto;
+        color: var(--ink);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(90deg, transparent 0, transparent calc(100% - 1px), rgba(17, 16, 12, 0.08) calc(100% - 1px));
+        background-size: calc((100vw - min(1180px, calc(100vw - 32px))) / 2 + min(1180px, calc(100vw - 32px)) / 4) 100%;
+        opacity: 0.45;
+        z-index: -1;
+      }
+
+      .nav {
+        border-bottom: 2px solid var(--ink);
+        background: rgba(244, 240, 230, 0.88);
+      }
+
+      .nav-inner {
+        min-height: 76px;
+      }
+
+      .brand {
+        text-transform: uppercase;
+        letter-spacing: 0;
+      }
+
+      .mark {
+        border: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--acid);
+        color: var(--ink);
+        box-shadow: 5px 5px 0 var(--ink);
+        font-weight: 950;
+      }
+
+      .links {
+        gap: 10px;
+        color: var(--ink);
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .links a,
+      .contact-link {
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        background: rgba(255, 250, 240, 0.72);
+        padding: 9px 13px;
+        transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+
+      .links a:hover,
+      .contact-link:hover {
+        background: var(--acid);
+        color: var(--ink);
+        box-shadow: 4px 4px 0 var(--ink);
+        transform: translate(-2px, -2px);
+      }
+
+      .hero {
+        min-height: calc(100svh - 76px);
+        display: flex;
+        align-items: center;
+        padding: 70px 0 56px;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.12fr) minmax(330px, 0.88fr);
+        gap: 52px;
+      }
+
+      .eyebrow {
+        width: fit-content;
+        border: 2px solid var(--ink);
+        background: var(--acid);
+        color: var(--ink);
+        padding: 8px 12px;
+        font-size: 0.78rem;
+        font-weight: 950;
+      }
+
+      h1 {
+        max-width: 960px;
+        margin-bottom: 28px;
+        font-size: clamp(3rem, 6.8vw, 6.2rem);
+        line-height: 0.9;
+        text-transform: lowercase;
+      }
+
+      h2 {
+        font-size: clamp(2.35rem, 5.8vw, 5.1rem);
+        line-height: 0.92;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        line-height: 1.02;
+      }
+
+      .lead {
+        max-width: 720px;
+        color: var(--soft);
+        font-size: clamp(1.08rem, 1.6vw, 1.38rem);
+        font-weight: 650;
+      }
+
+      .button {
+        border: 2px solid var(--ink);
+        border-radius: 0;
+        min-height: 54px;
+        box-shadow: 6px 6px 0 var(--ink);
+        text-transform: uppercase;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .button:hover {
+        box-shadow: 2px 2px 0 var(--ink);
+        transform: translate(4px, 4px);
+      }
+
+      .primary {
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .secondary {
+        background: var(--panel);
+        color: var(--ink);
+      }
+
+      .stats {
+        gap: 0;
+        border: 2px solid var(--ink);
+        box-shadow: 10px 10px 0 var(--ink);
+      }
+
+      .stat {
+        border: 0;
+        border-right: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--panel);
+        padding: 18px;
+      }
+
+      .stat:last-child {
+        border-right: 0;
+      }
+
+      .stat strong {
+        color: var(--ink);
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        letter-spacing: 0;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .signal-board {
+        border: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--ink);
+        color: var(--bg);
+        box-shadow: 16px 16px 0 var(--amber);
+        transform: rotate(1.2deg);
+      }
+
+      .board-top {
+        border-bottom: 2px solid rgba(244, 240, 230, 0.22);
+      }
+
+      .availability {
+        border: 2px solid var(--acid);
+        border-radius: 999px;
+        color: var(--acid);
+      }
+
+      .architecture-map {
+        gap: 12px;
+      }
+
+      .node {
+        border: 1px solid rgba(244, 240, 230, 0.24);
+        border-radius: 0;
+        background: rgba(244, 240, 230, 0.08);
+        color: rgba(244, 240, 230, 0.9);
+        font-weight: 760;
+      }
+
+      .node.accent {
+        border-color: var(--acid);
+        background: var(--acid);
+        color: var(--ink);
+      }
+
+      .board-note {
+        color: rgba(244, 240, 230, 0.75);
+      }
+
+      .ticker {
+        border-top: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        background: var(--acid);
+        color: var(--ink);
+        overflow: hidden;
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        gap: 18px;
+        align-items: center;
+        padding: 16px 0;
+        animation: scrollTicker 32s linear infinite;
+        font-size: clamp(1.08rem, 2vw, 1.8rem);
+        font-weight: 950;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .ticker b {
+        color: var(--rose);
+      }
+
+      @keyframes scrollTicker {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      section {
+        padding: 88px 0;
+        border-bottom: 2px solid rgba(17, 16, 12, 0.12);
+      }
+
+      .section-head {
+        grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.28fr);
+        gap: 32px;
+        margin-bottom: 38px;
+      }
+
+      .section-head p {
+        color: var(--soft);
+        font-size: 1.08rem;
+        font-weight: 650;
+      }
+
+      .section-head h2::before {
+        display: block;
+        margin-bottom: 14px;
+        color: var(--rose);
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      #clients .section-head h2::before { content: "01"; }
+      #work .section-head h2::before { content: "02"; }
+      #expertise .section-head h2::before { content: "03"; }
+
+      .logo-wall,
+      .client-strip,
+      .cards,
+      .timeline {
+        gap: 0;
+      }
+
+      .logo-wall {
+        border: 2px solid var(--ink);
+        box-shadow: 10px 10px 0 var(--ink);
+      }
+
+      .logo-tile {
+        border: 0;
+        border-right: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--ink);
+        min-height: 116px;
+      }
+
+      .logo-tile img,
+      .client-logo img {
+        filter: none;
+      }
+
+      .logo-tile:last-child {
+        border-right: 0;
+      }
+
+      .client-strip {
+        border: 2px solid var(--ink);
+        border-radius: 0;
+      }
+
+      .client {
+        min-height: 160px;
+        border-right: 2px solid var(--ink);
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .client:nth-child(odd) {
+        background: #1b1a15;
+      }
+
+      .client span {
+        color: rgba(244, 240, 230, 0.78);
+        font-weight: 650;
+      }
+
+      .wordmark {
+        color: var(--ink);
+        font-weight: 950;
+      }
+
+      .wordmark.comcast,
+      .wordmark.astrazeneca,
+      .wordmark.cognizant,
+      .wordmark.citi,
+      .logo-tile .wordmark,
+      .mini-logo .wordmark {
+        color: #fff7e8;
+      }
+
+      .logo-tile .wordmark.turnberry {
+        border-left-color: var(--acid);
+        font-size: 1.18rem;
+        color: #fff7e8;
+      }
+
+      .cards {
+        counter-reset: card;
+        border: 2px solid var(--ink);
+        box-shadow: 14px 14px 0 var(--ink);
+      }
+
+      .card {
+        position: relative;
+        counter-increment: card;
+        border: 0;
+        border-right: 2px solid var(--ink);
+        border-bottom: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--panel);
+        padding: 34px 28px 30px;
+        min-height: 265px;
+      }
+
+      .card:nth-child(3n) {
+        border-right: 0;
+      }
+
+      .card:nth-last-child(-n + 3) {
+        border-bottom: 0;
+      }
+
+      .card::before {
+        content: counter(card, decimal-leading-zero);
+        display: block;
+        margin-bottom: 24px;
+        color: var(--rose);
+        font-size: 2.8rem;
+        font-weight: 950;
+        line-height: 0.8;
+      }
+
+      .card h3 {
+        font-size: clamp(1.28rem, 2vw, 1.7rem);
+        text-transform: uppercase;
+      }
+
+      .card p,
+      .role p,
+      .role li {
+        color: var(--soft);
+        font-weight: 600;
+      }
+
+      .tag {
+        border: 1px solid var(--ink);
+        border-radius: 999px;
+        background: var(--acid);
+        color: var(--ink);
+        font-weight: 950;
+      }
+
+      .split {
+        gap: 0;
+        border: 2px solid var(--ink);
+        box-shadow: 14px 14px 0 var(--amber);
+      }
+
+      .split > .cards {
+        border: 0;
+        box-shadow: none;
+      }
+
+      .split > .cards .card {
+        min-height: auto;
+      }
+
+      .feature {
+        border: 0;
+        border-right: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--ink);
+        color: var(--bg);
+        padding: 36px;
+      }
+
+      .feature .eyebrow {
+        background: var(--amber);
+      }
+
+      .feature p {
+        color: rgba(244, 240, 230, 0.82);
+        font-weight: 650;
+      }
+
+      .feature strong {
+        color: var(--acid);
+      }
+
+      .skill-cloud {
+        gap: 12px;
+      }
+
+      .skill-cloud span {
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        background: var(--panel);
+        color: var(--ink);
+        box-shadow: 4px 4px 0 var(--ink);
+        font-weight: 800;
+      }
+
+      .timeline {
+        border-top: 2px solid var(--ink);
+      }
+
+      .role {
+        grid-template-columns: 240px minmax(0, 1fr);
+        border: 0;
+        border-bottom: 2px solid var(--ink);
+        border-radius: 0;
+        background: transparent;
+        padding: 28px 0;
+      }
+
+      .date {
+        color: var(--rose);
+        font-size: 1.12rem;
+        text-transform: uppercase;
+      }
+
+      .role-heading h3 {
+        font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+        text-transform: uppercase;
+      }
+
+      .mini-logo,
+      .inline-logo {
+        border: 2px solid var(--ink);
+        border-radius: 0;
+        background: var(--ink);
+        color: var(--bg);
+      }
+
+      .mini-logo img {
+        filter: none;
+      }
+
+      .contact {
+        border-top: 0;
+        background: var(--ink);
+        color: var(--bg);
+        padding: 76px 0;
+      }
+
+      .contact p {
+        color: rgba(244, 240, 230, 0.8);
+        font-weight: 650;
+      }
+
+      .contact .eyebrow {
+        background: var(--acid);
+        color: var(--ink);
+      }
+
+      .contact .primary {
+        background: var(--acid);
+        color: var(--ink);
+      }
+
+      .contact .secondary {
+        border-color: var(--bg);
+        background: transparent;
+        color: var(--bg);
+        box-shadow: 6px 6px 0 var(--acid);
+      }
+
+      footer {
+        border-top: 2px solid var(--acid);
+        background: var(--ink);
+        color: rgba(244, 240, 230, 0.72);
+      }
+
+      @media (max-width: 900px) {
+        body::before {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .signal-board {
+          transform: none;
+        }
+
+        .stat:nth-child(2),
+        .logo-tile:nth-child(2n),
+        .client:nth-child(2) {
+          border-right: 0;
+        }
+
+        .stat:nth-child(-n + 2) {
+          border-bottom: 2px solid var(--ink);
+        }
+
+        .card:nth-child(3n) {
+          border-right: 2px solid var(--ink);
+        }
+
+        .card:nth-child(2n) {
+          border-right: 0;
+        }
+
+        .card:nth-last-child(-n + 3) {
+          border-bottom: 2px solid var(--ink);
+        }
+
+        .card:nth-last-child(-n + 2) {
+          border-bottom: 0;
+        }
+
+        .feature {
+          border-right: 0;
+          border-bottom: 2px solid var(--ink);
+        }
+      }
+
+      @media (max-width: 620px) {
+        h1 {
+          font-size: clamp(2.55rem, 12vw, 3.6rem);
+        }
+
+        h2 {
+          font-size: clamp(2.1rem, 10.5vw, 3.35rem);
+        }
+
+        .stats {
+          box-shadow: 7px 7px 0 var(--ink);
+        }
+
+        .stat,
+        .stat:nth-child(2),
+        .logo-tile,
+        .logo-tile:nth-child(2n),
+        .client,
+        .client:nth-child(2),
+        .card,
+        .card:nth-child(2n),
+        .card:nth-child(3n) {
+          border-right: 0;
+        }
+
+        .stat:not(:last-child),
+        .logo-tile:not(:last-child),
+        .card:not(:last-child) {
+          border-bottom: 2px solid var(--ink);
+        }
+
+        .client:not(:last-child) {
+          border-bottom: 2px solid var(--ink);
+        }
+
+        .role {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -669,10 +1406,10 @@
           <span>Vipin Alakkadan</span>
         </a>
         <div class="links" aria-label="Primary navigation">
-          <a href="#clients">Clients</a>
-          <a href="#work">Work</a>
-          <a href="#expertise">Expertise</a>
-          <a href="#contact" class="contact-link">Contact</a>
+          <a href="#clients">01 Clients</a>
+          <a href="#work">02 Work</a>
+          <a href="#expertise">03 Expertise</a>
+          <a href="#contact" class="contact-link">04 Contact</a>
         </div>
       </div>
     </nav>
@@ -682,7 +1419,7 @@
         <div class="shell hero-grid">
           <div>
             <p class="eyebrow">Solutions Architect | Cloud, Gen AI, Application & Infrastructure</p>
-            <h1>Architecture leadership for complex enterprise platforms.</h1>
+            <h1>connecting enterprise ambition with production architecture.</h1>
             <p class="lead">
               I help organizations modernize applications, build secure cloud and AI platforms, improve reliability,
               and turn high-stakes transformation programs into deployable architecture.
@@ -695,7 +1432,7 @@
               <div class="stat"><strong>20+</strong><span>years in enterprise technology</span></div>
               <div class="stat"><strong>12</strong><span>years onsite with Comcast Business</span></div>
               <div class="stat"><strong>60</strong><span>engineers led across global teams</span></div>
-              <div class="stat"><strong>4,000</strong><span>VM migration and modernization portfolio</span></div>
+              <div class="stat"><strong>20+</strong><span>Migration projects and modernization portfolio</span></div>
             </div>
           </div>
           <aside class="signal-board" aria-label="Architecture focus map">
@@ -720,6 +1457,13 @@
         </div>
       </header>
 
+      <div class="ticker" aria-label="Architecture focus areas">
+        <div class="ticker-track">
+          <span>cloud modernization</span><b>×</b><span>gen ai platforms</span><b>→</b><span>sre transformation</span><b>×</b><span>kubernetes</span><b>→</b><span>devsecops</span><b>×</b><span>hybrid cloud</span><b>→</b><span>architecture governance</span><b>×</b><span>zero downtime delivery</span><b>→</b>
+          <span>cloud modernization</span><b>×</b><span>gen ai platforms</span><b>→</b><span>sre transformation</span><b>×</b><span>kubernetes</span><b>→</b><span>devsecops</span><b>×</b><span>hybrid cloud</span><b>→</b><span>architecture governance</span><b>×</b><span>zero downtime delivery</span><b>→</b>
+        </div>
+      </div>
+
       <section id="clients">
         <div class="shell">
           <div class="section-head">
@@ -738,15 +1482,19 @@
           </div>
           <div class="client-strip">
             <div class="client">
-              <div class="client-logo"><span class="wordmark comcast" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span></div>
+              <div class="client-logo logo-panel">
+                <img src="/assets/comcast-business.svg" alt="Comcast Business logo" loading="lazy" />
+              </div>
               <span>12 years of onsite technical leadership, platform architecture, SRE, modernization, and incident response.</span>
             </div>
             <div class="client">
-              <div class="client-logo"><span class="wordmark astrazeneca" role="img" aria-label="AstraZeneca logo">AstraZeneca</span></div>
+              <div class="client-logo logo-panel">
+                <img src="/assets/astrazeneca-logo.svg" alt="AstraZeneca logo" loading="lazy" />
+              </div>
               <span>Enterprise infrastructure and application operations across India and UK delivery contexts.</span>
             </div>
             <div class="client">
-              <div class="client-logo"><span class="wordmark citi" role="img" aria-label="Citi logo">citi</span></div>
+              <div class="client-logo"><span class="brand-logo citi-logo" role="img" aria-label="Citi logo">citi</span></div>
               <span>Mission-critical banking web hosting and ITIL-aligned production operations.</span>
             </div>
             <div class="client">
@@ -898,7 +1646,8 @@
                 <p class="inline-logo-row">
                   <span>Client:</span>
                   <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
-                  <span>Mount Laurel, New Jersey</span>
+                  <span>Location:</span>
+                  <span>Mount Laurel, NJ</span>
                 </p>
                 <ul>
                   <li>Established enterprise platform practice, reference architecture, service standards, IaC standards, and governance model.</li>
@@ -916,7 +1665,8 @@
                 <p class="inline-logo-row">
                   <span>Client:</span>
                   <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
-                  <span>Mount Laurel, New Jersey</span>
+                  <span>Location:</span>
+                  <span>Mount Laurel, NJ</span>
                 </p>
                 <ul>
                   <li>Led observability architecture across AWS, Azure, and on-prem environments for mission-critical platforms.</li>
@@ -932,9 +1682,16 @@
                   <h3>Lead Site Reliability Engineer / Infrastructure Architect</h3>
                 </div>
                 <p class="inline-logo-row">
-                  <span>Clients:</span>
+                  <span>Client:</span>
                   <span class="inline-logo" role="img" aria-label="Comcast Business logo">COMCAST BUSINESS</span>
+                  <span>Location:</span>
+                  <span>Mount Laurel, NJ</span>
+                </p>
+                <p class="inline-logo-row">
+                  <span>Client:</span>
                   <span class="inline-logo" role="img" aria-label="AstraZeneca logo">AstraZeneca</span>
+                  <span>Location:</span>
+                  <span>Macclesfield, UK</span>
                 </p>
                 <ul>
                   <li>Served as onsite client-facing technical lead and architect for Comcast Business for nearly a decade.</li>
@@ -943,21 +1700,44 @@
               </div>
             </article>
             <article class="role">
-              <div class="date">2006 - 2010</div>
+              <div class="date">Aug 2008 - Dec 2010</div>
               <div>
                 <div class="role-heading">
-                  <span class="mini-logo dual">
+                  <span class="mini-logo">
                     <img src="https://cdn.simpleicons.org/wipro/ffffff" alt="Wipro logo" loading="lazy" />
-                    <img src="https://cdn.simpleicons.org/infosys/ffffff" alt="Infosys logo" loading="lazy" />
                   </span>
-                  <h3>Infrastructure and Application Operations</h3>
+                  <h3>Senior Systems Administrator</h3>
                 </div>
                 <p class="inline-logo-row">
-                  <span>Clients included global financial services and</span>
-                  <span class="inline-logo" role="img" aria-label="Hitachi logo">HITACHI</span>
+                  <span>Client:</span>
+                  <span class="inline-logo" role="img" aria-label="Citibank logo">Citibank</span>
+                  <span>Location:</span>
+                  <span>Chennai, India</span>
                 </p>
                 <ul>
-                  <li>Operated enterprise web hosting and Java application infrastructure for business-critical production systems.</li>
+                  <li>Administered enterprise web hosting platforms for mission-critical banking applications across production and non-production environments.</li>
+                  <li>Supported incident resolution, change control, problem management, and availability practices aligned to ITIL operations.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="role">
+              <div class="date">Jan 2006 - Aug 2008</div>
+              <div>
+                <div class="role-heading">
+                  <span class="mini-logo">
+                    <img src="https://cdn.simpleicons.org/infosys/ffffff" alt="Infosys logo" loading="lazy" />
+                  </span>
+                  <h3>Software Engineer</h3>
+                </div>
+                <p class="inline-logo-row">
+                  <span>Client:</span>
+                  <span class="inline-logo" role="img" aria-label="Hitachi Renesas Technology Americas logo">HITACHI</span>
+                  <span>Location:</span>
+                  <span>Bengaluru, India</span>
+                </p>
+                <ul>
+                  <li>Supported Java-based web application infrastructure for Hitachi Renesas Technology Americas across production and non-production systems.</li>
+                  <li>Contributed to change, incident, and problem management while building foundational enterprise operations experience.</li>
                 </ul>
               </div>
             </article>
@@ -968,8 +1748,8 @@
       <section id="contact" class="contact">
         <div class="shell contact-grid">
           <div>
-            <p class="eyebrow">Let’s Work Together</p>
-            <h2>Available for freelance consulting and architecture leadership.</h2>
+            <p class="eyebrow" style="color: var(--ink);">Let’s Work Together</p>
+            <h2>Available for consulting and architecture partnership.</h2>
             <p>
               Bring me in for strategy, architecture reviews, modernization planning, AI platform design, reliability
               improvement, or hands-on leadership through complex engineering delivery.
